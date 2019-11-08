@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
     entry: './components/index.js',
+    mode:'development',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: "bundle.js",
@@ -35,6 +36,12 @@ module.exports = {
     },
     devServer: {
         port: 3000,
-        contentBase: path.resolve("./")
+        contentBase: path.resolve("./"),
+        headers: {
+            origin: "http://localhost:4000",
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': '*',
+        },
+      
     }
 }
